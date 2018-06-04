@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    margin: 0; /* 리셋을 하지 않은 경우 추가 */
+  }
+  .container {
+      min-height: calc(100vh - 20px);
+  }
+  footer {
+      height: 20px;
+      text-align: center;
+  }
+  h2{
+    font-size: 35px;
+    font-family: Fantasy;
+    margin-left: 28px;
+  }
+  #myBtn {
+    margin-left: 20px;
+  }
+  .layer{
+  position:absolute;
+  top:30%;
+  left:50%;
+  width:100px;
+  height:100px;
+  margin:-50px 0 0 -50px;
+  }
+  .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  #lblError{
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="layer">
+    <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjEyOHB4IiBoZWlnaHQ9IjEyOHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzYyLjY3Miw0Mi42NmgtNTMuMzI4YzAsMjkuNDE0LTIzLjkzOCw1My4zMzYtNTMuMzQ0LDUzLjMzNnMtNTMuMzI4LTIzLjkyMi01My4zMjgtNTMuMzM2aC01My4zMzZMMCwxMjcuOTk2ICAgIGw0Mi42NzIsMTE3LjMzNmw2NC0yMS4zMzZWNDY5LjM0aDI5OC42NzJWMjIzLjk5Nmw2NCwyMS4zMzZMNTEyLDEyNy45OTZMMzYyLjY3Miw0Mi42NnogTTQ1Ni4zNzUsMjE4LjUyN2wtNDQuMjk3LTE0Ljc2NiAgICBMMzg0LDE5NC4zOTV2MjkuNjAydjIyNEgxMjh2LTIyNHYtMjkuNjAybC0yOC4wNzgsOS4zNjdsLTQ0LjI5NywxNC43NjZsLTI5LjQzLTgwLjkzTDE1NSw2My45OTZoMjkuNDMgICAgYzkuMTgsMzAuODQ0LDM3Ljc1LDUzLjMzNiw3MS41Nyw1My4zMzZjMzMuODI4LDAsNjIuMzkxLTIyLjQ5Miw3MS41NjItNTMuMzM2SDM1N2wxMjguODEyLDczLjYwMkw0NTYuMzc1LDIxOC41Mjd6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+    <h2>Look4</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-default btn-lg" id="myBtn">로그인</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="padding:35px 50px;">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+          </div>
+          <div class="modal-body" style="padding:40px 50px;">
+            <form id= "target" role="form">
+              <div class="form-group">
+                <label for="usrname"><span class="glyphicon glyphicon-user"></span> 아이디</label>
+                <input type="text" class="form-control" id="usrname" placeholder="Enter Id">
+              </div>
+              <div class="form-group">
+                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> 비밀번호</label>
+                <input type="text" class="form-control" id="psw" placeholder="Enter Password">
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="" checked>Remember me</label>
+              </div>
+                <button type="submit" class="btn btn-success btn-block" id ="loginsbm" onclick="login()"><span class="glyphicon glyphicon-off"></span> Login</button>
+                <div id="lblError"></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+            <p><a href="#" onclick="getready()">회원가입</a></p>
+            <p><a href="#" onclick="getready()">비밀번호를 잊으셨습니까?</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">
+    Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+     is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+       CC 3.0 BY</a></div>
+</footer>
+
+<script type = "text/javascript">
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal({backdrop:"static"});
+
+    });
+});
+function login(){
+  if ($('#usrname').val() == "admin" && $('#psw').val() == "1234" ) {
+    $("#myModal").modal("hide");
+    $(document).ready(function(){
+      myFunction();
+    });
+    //$('#lblError').html("<b>성공</b>");
+  }else {
+    $('#lblError').text(''); // 클리어
+    $('#lblError').html("<b>아이디와 비밀번호를 확인해주세요</b>"); //레이어에 HTML 출력
+  }
+}
+function myFunction() {
+    location.replace("./Section.html");
+}
+function getready(){
+  alert('이 기능은 준비중입니다.\n지금은 관리자 계정으로만 접속 가능합니다.\nid : admin\npasswd : 1234');
+}
+// $('#loginsbm').click(function(){
+//   $('#target').submit(function() {
+//     if ($('#usrname').val() == "admin" && $('#psw').val() == "1234" ) {
+//       window.location.href  = "./carousel.html";
+//       $('#lblError').html("<b>성공</b>");
+//     }else {
+//       $('#lblError').text(''); // 클리어
+//       $('#lblError').html("<b>아이디와 비밀번호를 확인해주세요</b>"); //레이어에 HTML 출력
+//     }
+//     //alert('Handler for .submit() called.');
+//     //return false;
+//
+//   });
+// });
+</script>
+
+</body>
+</html>
